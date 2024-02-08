@@ -42,7 +42,7 @@ def Registration(request):
             messages.warning(request, " Your password and confirm password does not match" )
             return redirect('signup') 
         else:
-            data="INSERT INTO users('First_name','Last_name','Email','Aadhaar_no','DOB','Password','Confirm_password,'Gender')values('{}','{}','{}','{}','{}','{}','{}','{}')".format(fn,ln,em,ad,dob,pwd,cpwd,gn)
+            data="INSERT INTO users(First_name,Last_name,Email,Aadhaar_no,DOB,Password,Gender)values('{}','{}','{}','{}','{}','{}','{}')".format(fn,ln,em,ad,dob,pwd,cpwd,gn)
             cursor.execute(data)
             mysql.commit()
             messages.success(request, "Congratulations! Account created successfully" )

@@ -62,6 +62,7 @@ def Vote(request):
     cor=con.cursor()
     cor.execute("update users set Status=1 ,Candidate=%s where Aadhaar_no=%s",tuple((candidate,ad)))
     con.commit()
+    messages.success(request, "Congratulations! You Voted successfully" )
     con.close()
    
     return redirect('logout')
